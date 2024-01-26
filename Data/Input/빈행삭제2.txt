@@ -1,0 +1,18 @@
+Sub DeleteEmptyRowsRange2()
+    Dim ws As Worksheet
+    Dim range2 As Range
+    Dim row As Range
+    
+    ' 엑셀 시트 지정
+    Set ws = ThisWorkbook.Sheets("판매현황") 
+    
+    ' 두 번째 범위(K2:N21) 지정
+    Set range2 = ws.Range("K2:N21")
+    
+    ' 빈 행 삭제
+    For i = range2.Rows.Count To 1 Step -1
+        If Application.CountA(range2.Rows(i)) = 0 Then
+            range2.Rows(i).Delete
+        End If
+    Next i
+End Sub

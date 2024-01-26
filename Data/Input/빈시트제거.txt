@@ -1,0 +1,12 @@
+Sub RemoveSheets()
+    Dim ws As Worksheet
+    For Each ws In ThisWorkbook.Sheets
+        ' 시트에서 A2 및 A3 셀 값 확인
+        If ws.Range("A2").Value = "" And ws.Range("A3").Value = "" Then
+            ' A2 및 A3 셀이 모두 비어 있으면 시트 제거
+            Application.DisplayAlerts = False ' 경고 메시지 표시 끄기
+            ws.Delete
+            Application.DisplayAlerts = True ' 경고 메시지 표시 켜기
+        End If
+    Next ws
+End Sub
